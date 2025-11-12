@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vijeth M D | Contact</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --accent: #06b6d4;
+            --dark: #0f172a;
+            --darker: #020617;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--darker);
+            color: #e2e8f0;
+        }
+        
+        .code-font {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, var(--accent), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        }
+        
+        .glow {
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+        }
+        
+        .nav-glass {
+            background: rgba(2, 6, 23, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+        }
+        
+        .card-glass {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--primary));
+        }
+        
+        .toast {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            padding: 16px 24px;
+            background: #10b981;
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transform: translateX(150%);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .toast.show {
+            transform: translateX(0);
+        }
+        
+        .toast.error {
+            background: #ef4444;
+        }
+        
+        .loading {
+            display: none;
+        }
+        
+        .loading.show {
+            display: inline-block;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .config-error {
+            background: #ef4444;
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="bg-darker">
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <div class="flex items-center">
+            <i class="fas fa-check-circle mr-2"></i>
+            <span id="toast-message">Message sent successfully!</span>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav-glass fixed w-full z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-bold gradient-text code-font">Vijeth M D</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-gray-300 hover:text-white transition">Home</a>
+                <a href="about.html" class="text-gray-300 hover:text-white transition">About</a>
+                <a href="projects.html" class="text-gray-300 hover:text-white transition">Projects</a>
+                <a href="contact.html" class="text-white font-medium">Contact</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="flex space-x-3">
+                    <a href="https://github.com/vijethmd" class="text-gray-300 hover:text-white transition">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/vijeth-m-d-1b8902221/" class="text-gray-300 hover:text-white transition">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://leetcode.com/vijethmd" class="text-gray-300 hover:text-white transition">
+                        <i class="fas fa-code"></i>
+                    </a>
+                </div>
+                <button class="md:hidden text-gray-300">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Section -->
+    <section class="min-h-screen py-20 pt-32">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold section-title">Get In Touch</h2>
+            <p class="text-xl text-gray-300 mb-12 max-w-2xl">I'm always open to discussing new opportunities, innovative projects, or potential collaborations.</p>
+            
+            <!-- Configuration Error Message (Hidden by default) -->
+            <div id="config-error" class="config-error hidden">
+                <i class="fas fa-exclamation-triangle mr-2"></i>
+                <span>Email service is not configured. Please check your configuration file.</span>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 gradient-text">Let's Connect</h3>
+                    <p class="text-gray-300 mb-8">
+                        Whether you have a project in mind, want to collaborate, or just want to say hello, 
+                        I'd love to hear from you. Feel free to reach out through any of the channels below.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center">
+                            <div class="bg-cyan-500 bg-opacity-20 p-3 rounded-lg mr-4">
+                                <i class="fas fa-envelope text-cyan-400"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium">Email</p>
+                                <p class="text-gray-400">vijethdharmaprakash@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-green-500 bg-opacity-20 p-3 rounded-lg mr-4">
+                                <i class="fas fa-map-marker-alt text-green-400"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium">Location</p>
+                                <p class="text-gray-400">Bengaluru, Karnataka, India</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex space-x-4 mt-8">
+                        <a href="https://github.com/vijethmd" class="bg-gray-800 text-white p-3 rounded-lg hover:bg-gray-700 transition">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/vijeth-m-d-1b8902221/" class="bg-gray-800 text-white p-3 rounded-lg hover:bg-gray-700 transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="bg-gray-800 text-white p-3 rounded-lg hover:bg-gray-700 transition">
+                            <i class="fas fa-code"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="card-glass p-8 rounded-xl">
+                    <h3 class="text-2xl font-bold mb-6 gradient-text">Send Message</h3>
+                    <form id="contact-form" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="name" class="block text-gray-300 mb-2">Name *</label>
+                                <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-300 mb-2">Email *</label>
+                                <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-gray-300 mb-2">Subject *</label>
+                            <input type="text" id="subject" name="subject" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-300 mb-2">Message *</label>
+                            <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"></textarea>
+                        </div>
+                        <button type="submit" id="submit-btn" class="gradient-bg text-white px-6 py-3 rounded-lg font-medium glow hover:opacity-90 transition w-full flex items-center justify-center">
+                            <span id="btn-text">Send Message</span>
+                            <i class="fas fa-spinner loading ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 py-8">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <a href="index.html" class="text-xl font-bold gradient-text code-font">Vijeth M D</a>
+                    <p class="text-gray-400 text-sm mt-2">Building the future, one line of code at a time</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="index.html" class="text-gray-400 hover:text-white transition">Home</a>
+                    <a href="about.html" class="text-gray-400 hover:text-white transition">About</a>
+                    <a href="projects.html" class="text-gray-400 hover:text-white transition">Projects</a>
+                    <a href="contact.html" class="text-white font-medium">Contact</a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
+                <p>© 2024 Vijeth M D. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Global variable to store EmailJS configuration
+        let emailConfig = {
+            PUBLIC_KEY: null,
+            SERVICE_ID: null,
+            TEMPLATE_ID: null,
+            isConfigured: false
+        };
+
+        // Show toast notification
+        function showToast(message, isError = false) {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toast-message');
+            
+            toastMessage.textContent = message;
+            
+            if (isError) {
+                toast.classList.add('error');
+            } else {
+                toast.classList.remove('error');
+            }
+            
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 5000);
+        }
+
+        // Show configuration error
+        function showConfigError(message) {
+            const errorDiv = document.getElementById('config-error');
+            const errorText = errorDiv.querySelector('span');
+            errorText.textContent = message;
+            errorDiv.classList.remove('hidden');
+        }
+
+        // Hide configuration error
+        function hideConfigError() {
+            const errorDiv = document.getElementById('config-error');
+            errorDiv.classList.add('hidden');
+        }
+
+        // Load configuration from external file
+        async function loadEmailConfig() {
+            try {
+                console.log('Loading EmailJS configuration...');
+                
+                const response = await fetch('./config.js');
+                
+                if (!response.ok) {
+                    throw new Error(`Config file not found: ${response.status}`);
+                }
+                
+                const configText = await response.text();
+                
+                // Extract the configuration object from the JavaScript file
+                const configMatch = configText.match(/const EMAILJS_CONFIG\s*=\s*({[^;]+});/);
+                
+                if (!configMatch) {
+                    throw new Error('Invalid configuration format');
+                }
+                
+                // Safely parse the configuration
+                const configStr = configMatch[1]
+                    .replace(/(['"])?([a-zA-Z0-9_]+)(['"])?:/g, '"$2":')
+                    .replace(/'/g, '"');
+                
+                const loadedConfig = JSON.parse(configStr);
+                
+                // Validate required fields
+                if (!loadedConfig.PUBLIC_KEY || loadedConfig.PUBLIC_KEY === "your_actual_public_key_here") {
+                    throw new Error('Please set your actual EmailJS Public Key in config.js');
+                }
+                
+                if (!loadedConfig.SERVICE_ID) {
+                    throw new Error('SERVICE_ID is missing in config.js');
+                }
+                
+                if (!loadedConfig.TEMPLATE_ID) {
+                    throw new Error('TEMPLATE_ID is missing in config.js');
+                }
+                
+                // Update global configuration
+                emailConfig = { ...loadedConfig, isConfigured: true };
+                
+                // Initialize EmailJS
+                emailjs.init(emailConfig.PUBLIC_KEY);
+                
+                console.log('EmailJS configuration loaded successfully');
+                hideConfigError();
+                return true;
+                
+            } catch (error) {
+                console.error('Failed to load EmailJS configuration:', error);
+                // showConfigError(`Email service configuration error: ${error.message}`);
+                return false;
+            }
+        }
+
+        // Handle form submission
+        async function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            const submitBtn = document.getElementById('submit-btn');
+            const btnText = document.getElementById('btn-text');
+            const loadingIcon = document.querySelector('.loading');
+            
+            // Check if configuration is loaded
+            if (!emailConfig.isConfigured) {
+                showToast('Email service is not configured. Please check your configuration.', true);
+                return;
+            }
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            btnText.textContent = 'Sending...';
+            loadingIcon.classList.add('show');
+            
+            try {
+                // Get form values
+                const formData = {
+                    from_name: document.getElementById('name').value.trim(),
+                    from_email: document.getElementById('email').value.trim(),
+                    subject: document.getElementById('subject').value.trim(),
+                    message: document.getElementById('message').value.trim(),
+                    reply_to: document.getElementById('email').value.trim()
+                };
+                
+                // Validate form data
+                if (!formData.from_name || !formData.from_email || !formData.subject || !formData.message) {
+                    throw new Error('Please fill in all required fields');
+                }
+                
+                console.log('Sending email with configuration:', {
+                    serviceId: emailConfig.SERVICE_ID,
+                    templateId: emailConfig.TEMPLATE_ID,
+                    formData: formData
+                });
+                
+                // Send email using EmailJS with loaded configuration
+                const response = await emailjs.send(
+                    emailConfig.SERVICE_ID, 
+                    emailConfig.TEMPLATE_ID, 
+                    formData
+                );
+                
+                console.log('Email sent successfully:', response);
+                showToast('Message sent successfully! I\'ll get back to you soon.');
+                document.getElementById('contact-form').reset();
+                
+            } catch (error) {
+                console.error('Error sending email:', error);
+                
+                let errorMessage = 'Failed to send message. ';
+                
+                if (error.text) {
+                    errorMessage += `Server error: ${error.text}`;
+                } else if (error.message) {
+                    errorMessage += error.message;
+                } else {
+                    errorMessage += 'Please try again later or email me directly.';
+                }
+                
+                showToast(errorMessage, true);
+                
+            } finally {
+                // Reset button state
+                submitBtn.disabled = false;
+                btnText.textContent = 'Send Message';
+                loadingIcon.classList.remove('show');
+            }
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', async function() {
+            console.log('Page loaded, loading EmailJS configuration...');
+            
+            // Load configuration
+            const configLoaded = await loadEmailConfig();
+            
+            if (configLoaded) {
+                // Add form event listener
+                document.getElementById('contact-form').addEventListener('submit', handleFormSubmit);
+                
+                // Simple form validation
+                const form = document.getElementById('contact-form');
+                const inputs = form.querySelectorAll('input[required], textarea[required]');
+                
+                inputs.forEach(input => {
+                    input.addEventListener('blur', () => {
+                        if (!input.value.trim()) {
+                            input.classList.add('border-red-500');
+                        } else {
+                            input.classList.remove('border-red-500');
+                        }
+                    });
+                });
+            }
+        });
+
+        // Fallback: If config loading fails, show instructions
+        setTimeout(() => {
+            if (!emailConfig.isConfigured) {
+                console.warn('EmailJS configuration not loaded. Make sure config.js exists and is properly formatted.');
+            }
+        }, 2000);
+    </script>
+</body>
+</html>

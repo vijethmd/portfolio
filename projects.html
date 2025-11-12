@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vijeth M D | Projects</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --accent: #06b6d4;
+            --dark: #0f172a;
+            --darker: #020617;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--darker);
+            color: #e2e8f0;
+        }
+        
+        .code-font {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, var(--accent), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-glass {
+            background: rgba(2, 6, 23, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+        }
+        
+        .card-glass {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .card-glass:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--primary));
+        }
+        
+        .tech-tag {
+            background: rgba(99, 102, 241, 0.2);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+        
+        .project-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-darker">
+    <!-- Navigation -->
+    <nav class="nav-glass fixed w-full z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-bold gradient-text code-font">Vijeth M D</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-gray-300 hover:text-white transition">Home</a>
+                <a href="about.html" class="text-gray-300 hover:text-white transition">About</a>
+                <a href="projects.html" class="text-white font-medium">Projects</a>
+                <a href="contact.html" class="text-gray-300 hover:text-white transition">Contact</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="flex space-x-3">
+                    <a href="https://github.com/vijethmd" class="text-gray-300 hover:text-white transition">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-white transition">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-white transition">
+                        <i class="fab fa-leetcode"></i>
+                    </a>
+                </div>
+                <button class="md:hidden text-gray-300">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Projects Section -->
+    <section class="min-h-screen py-20 pt-32">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold section-title">My Projects</h2>
+            <p class="text-xl text-gray-300 mb-12 max-w-2xl">A collection of my work spanning full-stack development, AI/ML applications, and innovative solutions.</p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 - MedPredict -->
+                <div class="card-glass rounded-xl overflow-hidden">
+                    <div class="project-image">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold">MedPredict</h3>
+                            <span class="bg-green-500 bg-opacity-20 text-green-400 text-xs px-2 py-1 rounded">AI/ML</span>
+                        </div>
+                        <p class="text-gray-400 mb-4">AI model to predict diseases based on symptoms with NLP integration</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag px-2 py-1 rounded text-xs">Python</span>
+                            <span class="tech-tag px-2 py-1 rounded text-xs">NLP</span>
+                            <span class="tech-tag px-2 py-1 rounded text-xs">Flask</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="https://github.com/vijethmd/medpredict" target="_blank" class="text-cyan-400 hover:text-cyan-300 transition flex items-center">
+                                <i class="fab fa-github mr-2"></i> View Code
+                            </a>
+                            <div class="flex space-x-2 text-gray-400">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <span class="text-sm">18</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 - Stellar Classification -->
+                <div class="card-glass rounded-xl overflow-hidden">
+                    <div class="project-image">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold">Stellar Classification</h3>
+                            <span class="bg-purple-500 bg-opacity-20 text-purple-400 text-xs px-2 py-1 rounded">Data Science</span>
+                        </div>
+                        <p class="text-gray-400 mb-4">Classify celestial objects as QSO, Galaxy, or Star based on parameters</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag px-2 py-1 rounded text-xs">Python</span>
+                            <span class="tech-tag px-2 py-1 rounded text-xs">Scikit-learn</span>
+                            <span class="tech-tag px-2 py-1 rounded text-xs">Pandas</span>
+                            <span class="tech-tag px-2 py-1 rounded text-xs">Matplotlib</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="https://github.com/vijethmd/space_classifier" target="_blank" class="text-cyan-400 hover:text-cyan-300 transition flex items-center">
+                                <i class="fab fa-github mr-2"></i> View Code
+                            </a>
+                            <div class="flex space-x-2 text-gray-400">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <span class="text-sm">15</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 - Ayushi -->
+                <div class="card-glass rounded-xl overflow-hidden">
+                    <div class="project-image">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold">Ayushi</h3>
+                            <span class="bg-cyan-500 bg-opacity-20 text-cyan-400 text-xs px-2 py-1 rounded">Full-Stack</span>
+                        </div>
+                        <p class="text-gray-400 mb-4">Ayurvedic Patient Data Management System with AI integration</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag px-2 py-1 rounded text-xs">Node.js</span>
+                            <span class="tech-tag px-2 py-1 rounded text-xs">MongoDB</span>
+                            <span class="tech-tag px-2 py-1 rounded text-xs">Gemini AI</span>
+                            <span class="tech-tag px-2 py-1 rounded text-xs">EJS</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="https://github.com/vijethmd/ayushi" target="_blank" class="text-cyan-400 hover:text-cyan-300 transition flex items-center">
+                                <i class="fab fa-github mr-2"></i> View Code
+                            </a>
+                            <div class="flex space-x-2 text-gray-400">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <span class="text-sm">24</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 - ChatApp -->
+                <div class="card-glass rounded-xl overflow-hidden">
+                    <div class="project-image">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold">ChatApp</h3>
+                            <span class="bg-cyan-500 bg-opacity-20 text-cyan-400 text-xs px-2 py-1 rounded">Full-Stack</span>
+                        </div>
+                        <p class="text-gray-400 mb-4">Secure web-based messaging platform with real-time features</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag px-2 py-1 rounded text-xs">Node.js</span>
+                            <span class="tech-tag px-2 py-1 rounded text-xs">Socket.io</span>
+                            <span class="tech-tag px-2 py-1 rounded text-xs">MySQL</span>
+                            <span class="tech-tag px-2 py-1 rounded text-xs">EJS</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="https://github.com/vijethmd/chatapp" target="_blank" class="text-cyan-400 hover:text-cyan-300 transition flex items-center">
+                                <i class="fab fa-github mr-2"></i> View Code
+                            </a>
+                            <div class="flex space-x-2 text-gray-400">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <span class="text-sm">22</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 - StayIn -->
+                <div class="card-glass rounded-xl overflow-hidden">
+                    <div class="project-image">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold">StayIn</h3>
+                            <span class="bg-cyan-500 bg-opacity-20 text-cyan-400 text-xs px-2 py-1 rounded">Full-Stack</span>
+                        </div>
+                        <p class="text-gray-400 mb-4">Full-stack rental platform with interactive maps and image uploads</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag px-2 py-1 rounded text-xs">Node.js</span>
+                            <span class="tech-tag px-2 py-1 rounded text-xs">MongoDB</span>
+                            <span class="tech-tag px-2 py-1 rounded text-xs">Mapbox</span>
+                            <span class="tech-tag px-2 py-1 rounded text-xs">Cloudinary</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="https://github.com/vijethmd/stayin" target="_blank" class="text-cyan-400 hover:text-cyan-300 transition flex items-center">
+                                <i class="fab fa-github mr-2"></i> View Code
+                            </a>
+                            <div class="flex space-x-2 text-gray-400">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <span class="text-sm">19</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 py-8">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <a href="index.html" class="text-xl font-bold gradient-text code-font">Vijeth M D</a>
+                    <p class="text-gray-400 text-sm mt-2">Building the future, one line of code at a time</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="index.html" class="text-gray-400 hover:text-white transition">Home</a>
+                    <a href="about.html" class="text-gray-400 hover:text-white transition">About</a>
+                    <a href="projects.html" class="text-white font-medium">Projects</a>
+                    <a href="contact.html" class="text-gray-400 hover:text-white transition">Contact</a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
+                <p>© 2024 Vijeth M D. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

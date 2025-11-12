@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vijeth M D | About</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --accent: #06b6d4;
+            --dark: #0f172a;
+            --darker: #020617;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--darker);
+            color: #e2e8f0;
+        }
+        
+        .code-font {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, var(--accent), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-glass {
+            background: rgba(2, 6, 23, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+        }
+        
+        .card-glass {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .card-glass:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--primary));
+        }
+        
+        .skill-bar {
+            height: 8px;
+            background-color: rgba(30, 41, 59, 0.5);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+        
+        .tech-tag {
+            background: rgba(99, 102, 241, 0.2);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-darker">
+    <!-- Navigation -->
+    <nav class="nav-glass fixed w-full z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-bold gradient-text code-font">Vijeth M D</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-gray-300 hover:text-white transition">Home</a>
+                <a href="about.html" class="text-white font-medium">About</a>
+                <a href="projects.html" class="text-gray-300 hover:text-white transition">Projects</a>
+                <a href="contact.html" class="text-gray-300 hover:text-white transition">Contact</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="flex space-x-3">
+                    <a href="https://github.com/vijethmd" class="text-gray-300 hover:text-white transition">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-white transition">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-white transition">
+                        <i class="fab fa-leetcode"></i>
+                    </a>
+                </div>
+                <button class="md:hidden text-gray-300">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section class="min-h-screen py-20 pt-32">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold section-title">About Me</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <div class="card-glass p-6 rounded-xl">
+                    <div class="text-cyan-400 text-3xl mb-4">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Education</h3>
+                    <p class="text-gray-300">B.E. in Computer Science at BMS College of Engineering</p>
+                    <p class="text-sm text-cyan-400 mt-2">CGPA: 9.62/10.0</p>
+                </div>
+                
+                <div class="card-glass p-6 rounded-xl">
+                    <div class="text-purple-400 text-3xl mb-4">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Developer</h3>
+                    <p class="text-gray-300">Full-stack development with modern technologies</p>
+                    <p class="text-sm text-purple-400 mt-2">React, Node.js, MongoDB, Python</p>
+                </div>
+                
+                <div class="card-glass p-6 rounded-xl">
+  <div class="text-orange-500 text-3xl mb-4" aria-hidden="true">
+    <i class="fas fa-code"></i>
+  </div>
+  <h3 class="text-xl font-bold mb-2">Problem Solving</h3>
+  <p class="text-gray-300">Solving algorithmic and data-structure challenges</p>
+  <p class="text-sm text-orange-400 mt-2">DSA, Algorithms, Competitive Programming</p>
+</div>
+
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 gradient-text">Technical Skills</h3>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Frontend Development</span>
+                                <span class="text-cyan-400 text-sm">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Backend Development</span>
+                                <span class="text-cyan-400 text-sm">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">AI/ML</span>
+                                <span class="text-cyan-400 text-sm">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Databases</span>
+                                <span class="text-cyan-400 text-sm">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 gradient-text">Technologies</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="tech-tag px-3 py-1 rounded-full text-sm">React.js</span>
+                        <span class="tech-tag px-3 py-1 rounded-full text-sm">Node.js</span>
+                        <span class="tech-tag px-3 py-1 rounded-full text-sm">Express.js</span>
+                        <span class="tech-tag px-3 py-1 rounded-full text-sm">MongoDB</span>
+                        <span class="tech-tag px-3 py-1 rounded-full text-sm">MySQL</span>
+                        <span class="tech-tag px-3 py-1 rounded-full text-sm">Python</span>
+                        <!-- <span class="tech-tag px-3 py-1 rounded-full text-sm">TensorFlow</span> -->
+                        <!-- <span class="tech-tag px-3 py-1 rounded-full text-sm">NLP</span> -->
+                        <span class="tech-tag px-3 py-1 rounded-full text-sm">Git</span>
+                        <!-- <span class="tech-tag px-3 py-1 rounded-full text-sm">Docker</span> -->
+                        <!-- <span class="tech-tag px-3 py-1 rounded-full text-sm">AWS</span> -->
+                        <span class="tech-tag px-3 py-1 rounded-full text-sm">JavaScript</span>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold mt-8 mb-4 gradient-text">Achievements</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-trophy text-yellow-400 mt-1 mr-3"></i>
+                            <div>
+                                <p class="font-medium">LeetCode</p>
+                                <p class="text-sm text-gray-400">Solved 300+ problems with max rating of 1525</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-medal text-purple-400 mt-1 mr-3"></i>
+                            <div>
+                                <p class="font-medium">Hackaphasia</p>
+                                <p class="text-sm text-gray-400">Top 10 teams out of 120 in IEEE BMSCE hackathon</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-ranking-star text-cyan-400 mt-1 mr-3"></i>
+                            <div>
+                                <p class="font-medium">KCET Rank</p>
+                                <p class="text-sm text-gray-400">Achieved top 1000 rank (901) in entrance examination</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 py-8">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <a href="index.html" class="text-xl font-bold gradient-text code-font">Vijeth M D</a>
+                    <p class="text-gray-400 text-sm mt-2">Building the future, one line of code at a time</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="index.html" class="text-gray-400 hover:text-white transition">Home</a>
+                    <a href="about.html" class="text-white font-medium">About</a>
+                    <a href="projects.html" class="text-gray-400 hover:text-white transition">Projects</a>
+                    <a href="contact.html" class="text-gray-400 hover:text-white transition">Contact</a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
+                <p>© 2024 Vijeth M D. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
